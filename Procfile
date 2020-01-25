@@ -1,2 +1,2 @@
-release: ENV_SILENT=true yarn sequelize db:migrate
+release: ENV_SILENT=true yarn 
 web: ENV_SILENT=true yarn start
