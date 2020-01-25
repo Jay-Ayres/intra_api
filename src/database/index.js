@@ -13,6 +13,8 @@ class Database {
     this.init();
   }
   init() {
+    console.log("logando o config");
+    console.log(databaseConfig);
     this.connection = new Sequelize(databaseConfig);
 
     //verificar porque foi passado o associate
