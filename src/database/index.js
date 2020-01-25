@@ -13,6 +13,10 @@ class Database {
     this.init();
   }
   init() {
+    console.log("logando o config");
+    console.log(databaseConfig.host);
+    console.log();
+
     if (process.env.NODE_ENV == "development") {
       this.connection = new Sequelize(databaseConfig);
     } else {
