@@ -13,15 +13,15 @@ class Database {
     this.init();
   }
   init() {
-    console.log("logando o config");
-    console.log(databaseConfig.host);
-    console.log();
+    //console.log("logando o config");
+    //console.log(databaseConfig.host);
+    //console.log();
 
-    if (process.env.NODE_ENV == "development") {
-      this.connection = new Sequelize(databaseConfig);
-    } else {
-      this.connection = new Sequelize(process.env.CLEARDB_DATABASE_URL);
-    }
+    //if (process.env.NODE_ENV == "development") {
+    //  this.connection = new Sequelize(databaseConfig);
+    //} else {
+    this.connection = new Sequelize(process.env.CLEARDB_DATABASE_URL);
+    //}
 
     //verificar porque foi passado o associate
     models
