@@ -1,6 +1,7 @@
 import app from "./app";
 import cors from "cors";
+import "dotenv/config";
 
 app.use(cors());
 
-app.listen(3333);
+app.listen(process.env.PORT);
