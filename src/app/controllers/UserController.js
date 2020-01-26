@@ -23,6 +23,12 @@ class UserController {
     if (userExists) {
       return res.status(400).json({ error: "User already exists" });
     }
+
+    const user = await User.create(req.body);
+
+    console.log(user);
+
+    return res.status(200).json(user);
   }
 
   async update(req, res) {
