@@ -2,15 +2,15 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Yet Another Node.js Blogg Application API",
-    "description": "Yet Another Node.js Blogg Application API",
+    "title": "The intra API",
+    "description": "API used for the intranet app's company",
     "license": {
-      "name": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
+      "name": "Jay's github",
+      "url": "https://github.com/Jay-Ayres"
     }
   },
-  "host": "localhost:3000",
-  "basePath": "/api/v1",
+  "host": "localhost:3333",
+  "basePath": "/",
   "tags": [
     {
       "name": "Users",
@@ -254,6 +254,56 @@
         }
       }
     },
+    "/events/user": {
+      "post": {
+        "tags": ["Events"],
+        "description": "Create new event in system",
+        "parameters": [
+          {
+            "name": "event",
+            "in": "body",
+            "description": "Event that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New event is created",
+            "schema": {
+              "$ref": "#/definitions/EventUser"
+            }
+          }
+        }
+      }
+    },
+    "/events/user/{id}": {
+      "get": {
+        "tags": ["Events"],
+        "description": "Create new event in system",
+        "parameters": [
+          {
+            "name": "event",
+            "in": "body",
+            "description": "Get all the events for a user",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New event is created",
+            "schema": {
+              "$ref": "#/definitions/EventUser"
+            }
+          }
+        }
+      }
+    },
     "/events/{id}": {
       "parameters": [
         {
@@ -350,10 +400,6 @@
         }
       }
     },
-    "Users": {
-      "type": "array",
-      "$ref": "#/definitions/User"
-    },
     "Post": {
       "required": ["email", "id"],
       "properties": {
@@ -403,13 +449,32 @@
         }
       }
     },
+    "EventUser": {
+      "required": ["user_id", "event_id"],
+      "properties": {
+        "event_id": {
+          "type": "integer"
+        },
+        "user_id": {
+          "type": "integer"
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    },
     "Posts": {
       "type": "array",
       "$ref": "#/definitions/Post"
     },
     "Events": {
       "type": "array",
-      "$ref": "#/definitions/Post"
+      "$ref": "#/definitions/Event"
+    },
+    "EventUsers": {
+      "type": "array",
+      "$ref": "#/definitions/EventUser"
     }
   }
 }
